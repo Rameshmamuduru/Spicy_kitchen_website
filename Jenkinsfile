@@ -20,6 +20,7 @@ pipeline {
             steps {
                 echo "Building Docker Image"
                 sh '''
+                    
                     docker build -t $IMAGE_NAME:$IMAGE_TAG .
                 '''
             }
@@ -51,6 +52,7 @@ pipeline {
             steps {
                 echo "Deploying Docker Image to Container"
                 sh '''
+                    docker rm -f spicy-kitchen || true
                     docker run -d -p 80:80 $IMAGE_NAME:$IMAGE_TAG
                 '''
             }
