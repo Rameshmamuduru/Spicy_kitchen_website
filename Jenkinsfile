@@ -53,6 +53,8 @@ pipeline {
                 echo "Deploying Docker Image to Container"
                 sh '''
                     docker rm -f spicy-kitchen || true
+                    docker run -d -p 8080:80 --name spicy-kitchen ramesh0621/spicy-kitchen:v1
+
                     
                 '''
             }
