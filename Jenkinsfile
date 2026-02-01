@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "${ramesh0621}/spicy-kitchen"
+        IMAGE_NAME = "ramesh0621/spicy-kitchen"
         IMAGE_TAG = "v1"
     }
 
