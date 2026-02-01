@@ -6,8 +6,7 @@ services:
       - "80:80"
     restart: always
     depends_on:
-      - serviceName: db
-        condition: service_healthy
+      - db
 
   db:
     image: mysql:5.7
