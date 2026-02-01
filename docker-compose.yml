@@ -1,0 +1,27 @@
+services:
+  webserver:
+    image: nginx:latest
+    container_name: my-nginx-app
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - serviceName: db
+        condition: service_healthy
+
+  db:
+    image: mysql:5.7
+    container_name: my-mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: pass123
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user123
+      MYSQL_PASSWORD: userpass123
+    ports:  
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql 
+    
+
+volumes:
+  db-data:
