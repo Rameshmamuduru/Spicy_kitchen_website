@@ -53,8 +53,8 @@ pipeline {
                 echo "Deploying Docker Image to Container using docker compose"
                 sh '''
 
-                    docker compose down || true
-                    docker compose up -d
+                    docker-compose down || true
+                    docker-compose up -d
                 '''
             }
         }
